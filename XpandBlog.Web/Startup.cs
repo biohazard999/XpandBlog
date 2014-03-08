@@ -8,6 +8,8 @@ namespace XpandBlog.Web
     {
         public void Configuration(IAppBuilder app)
         {
+            var unityContainer = BootstrapperMVC.Initialise();
+
             ConfigureAuth(app);
         }
     }

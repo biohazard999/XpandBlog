@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0DFFF7A1-9F2D-4A5C-98BD-7C8B20E56AA0}</ProjectGuid>
+    <ProjectGuid>{86CF33F0-2AA6-4131-B7C1-D34DBCBE5B41}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>XpandBlog.DTO</RootNamespace>
-    <AssemblyName>XpandBlog.DTO</AssemblyName>
+    <RootNamespace>XpandBlog.ExpressApp.Xpo</RootNamespace>
+    <AssemblyName>XpandBlog.ExpressApp.Xpo</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,9 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.AspNet.Identity.Core">
-      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.0.0-beta1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
-    </Reference>
+    <Reference Include="DevExpress.Data.v13.2, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.ExpressApp.v13.2, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.ExpressApp.Xpo.v13.2, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpo.v13.2, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Practices.Unity">
       <HintPath>..\packages\Unity.3.0.1304.1\lib\Net45\Microsoft.Practices.Unity.dll</HintPath>
     </Reference>
@@ -48,18 +49,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NestedUnityXPObjectSpace.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Security\User.cs" />
-    <Compile Include="Security\Role.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\XpandBlog.Contracts\XpandBlog.Contracts.csproj">
-      <Project>{22122561-AE5F-4998-8186-64A7F960C26E}</Project>
-      <Name>XpandBlog.Contracts</Name>
-    </ProjectReference>
+    <Compile Include="UnityObjectSpaceExtentions.cs" />
+    <Compile Include="UnityXPObjectSpace.cs" />
+    <Compile Include="UnityXPObjectSpaceProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XpandBlog.Persistent.Base\XpandBlog.Persistent.Base.csproj">
+      <Project>{BBBF9347-183E-4CF9-8259-D86000431A2D}</Project>
+      <Name>XpandBlog.Persistent.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XpandBlog.Xpo\XpandBlog.Xpo.csproj">
+      <Project>{89A8AFC1-58DD-470B-91C5-FD202D0478EF}</Project>
+      <Name>XpandBlog.Xpo</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
