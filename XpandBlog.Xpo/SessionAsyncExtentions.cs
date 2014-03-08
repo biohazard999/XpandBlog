@@ -10,6 +10,11 @@ namespace XpandBlog.Xpo
 {
     public static class SessionAsyncExtentions
     {
+        public static Task<T> FindObjectByKeyAsync<T>(this Session session, object key)
+        {
+            return session.FindObjectAsync<T>(new BinaryOperator(session.GetClassInfo<T>().KeyProperty.Name, key, BinaryOperatorType.Equal));
+        }
+
         public static Task<T> FindObjectAsync<T>(this Session session, CriteriaOperator criteriaOperator)
         {
             var tcs = new TaskCompletionSource<T>();
