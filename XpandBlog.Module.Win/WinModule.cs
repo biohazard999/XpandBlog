@@ -1,36 +1,40 @@
 using System;
-using System.Linq;
-using System.Text;
 using System.ComponentModel;
 using DevExpress.ExpressApp;
-using DevExpress.ExpressApp.DC;
 using System.Collections.Generic;
-using DevExpress.ExpressApp.Model;
 using DevExpress.ExpressApp.Editors;
-using DevExpress.ExpressApp.Actions;
 using DevExpress.ExpressApp.Updating;
-using DevExpress.ExpressApp.Model.Core;
-using DevExpress.ExpressApp.Model.DomainLogics;
-using DevExpress.ExpressApp.Model.NodeGenerators;
 
 namespace XpandBlog.Module.Win
 {
-    [ToolboxItemFilter("Xaf.Platform.Win")]
-    // For more typical usage scenarios, be sure to check out http://documentation.devexpress.com/#Xaf/clsDevExpressExpressAppModuleBasetopic.
-    public sealed partial class XpandBlogWindowsFormsModule : ModuleBase
+    public sealed class XpandBlogWindowsFormsModule : ModuleBase
     {
-        public XpandBlogWindowsFormsModule()
+        protected override ModuleTypeList GetRequiredModuleTypesCore()
         {
-            InitializeComponent();
+            return new ModuleTypeList(
+                 typeof(DevExpress.ExpressApp.SystemModule.SystemModule),
+                 typeof(DevExpress.ExpressApp.Win.SystemModule.SystemWindowsFormsModule),
+                 typeof(XpandBlogModule)
+                 );
         }
+
+        protected override IEnumerable<Type> GetDeclaredExportedTypes()
+        {
+            return Type.EmptyTypes;
+        }
+
+        protected override IEnumerable<Type> GetDeclaredControllerTypes()
+        {
+            return Type.EmptyTypes;
+        }
+
         public override IEnumerable<ModuleUpdater> GetModuleUpdaters(IObjectSpace objectSpace, Version versionFromDB)
         {
             return ModuleUpdater.EmptyModuleUpdaters;
         }
-        public override void Setup(XafApplication application)
+        protected override void RegisterEditorDescriptors(List<EditorDescriptor> editorDescriptors)
         {
-            base.Setup(application);
-            // Manage various aspects of the application UI and behavior at the module level.
+
         }
     }
 }

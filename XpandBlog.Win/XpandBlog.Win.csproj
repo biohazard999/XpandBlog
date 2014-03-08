@@ -164,10 +164,6 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="WinApplication.resx">
-      <DependentUpon>WinApplication.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
@@ -175,9 +171,6 @@
     </Compile>
     <Compile Include="WinApplication.cs">
       <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="WinApplication.Designer.cs">
-      <DependentUpon>WinApplication.cs</DependentUpon>
     </Compile>
     <None Include="App.config" />
     <Content Include="Model.xafml">
@@ -195,8 +188,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ExpressApp.ico" />
-    <None Include="Images\ReadMe.txt" />
-    <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\XpandBlog.Module.Win\XpandBlog.Module.Win.csproj">
@@ -224,6 +215,9 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

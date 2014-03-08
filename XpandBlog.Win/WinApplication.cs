@@ -1,44 +1,53 @@
 using System;
-using System.ComponentModel;
 using DevExpress.ExpressApp;
+using DevExpress.ExpressApp.SystemModule;
+using DevExpress.ExpressApp.Win.SystemModule;
 using DevExpress.ExpressApp.Xpo;
 using DevExpress.ExpressApp.Win;
 using System.Collections.Generic;
-using DevExpress.ExpressApp.Updating;
-//using DevExpress.ExpressApp.Security;
+using XpandBlog.Module;
+using XpandBlog.Module.Win;
 
 namespace XpandBlog.Win
 {
-    // For more typical usage scenarios, be sure to check out http://documentation.devexpress.com/#Xaf/DevExpressExpressAppWinWinApplicationMembersTopicAll
-    public partial class XpandBlogWindowsFormsApplication : WinApplication
+    public  class XpandBlogWindowsFormsApplication : WinApplication
     {
         public XpandBlogWindowsFormsApplication()
         {
-            InitializeComponent();
+            this.ApplicationName = "XpandBlog";
+
+            this.Modules.Add(new SystemModule());
+            this.Modules.Add(new SystemWindowsFormsModule());
+            this.Modules.Add(new XpandBlogModule());
+            this.Modules.Add(new XpandBlogWindowsFormsModule());
         }
 
         protected override void CreateDefaultObjectSpaceProvider(CreateCustomObjectSpaceProviderEventArgs args)
         {
             args.ObjectSpaceProvider = new XPObjectSpaceProvider(args.ConnectionString, args.Connection);
         }
-        private void XpandBlogWindowsFormsApplication_CustomizeLanguagesList(object sender, CustomizeLanguagesListEventArgs e)
+
+        protected override void OnCustomizeLanguages(IList<string> languages)
         {
             string userLanguageName = System.Threading.Thread.CurrentThread.CurrentUICulture.Name;
-            if (userLanguageName != "en-US" && e.Languages.IndexOf(userLanguageName) == -1)
+            if (userLanguageName != "en-US" && languages.IndexOf(userLanguageName) == -1)
             {
-                e.Languages.Add(userLanguageName);
+                languages.Add(userLanguageName);
             }
+
+            base.OnCustomizeLanguages(languages);
         }
-        private void XpandBlogWindowsFormsApplication_DatabaseVersionMismatch(object sender, DevExpress.ExpressApp.DatabaseVersionMismatchEventArgs e)
+
+        protected override void OnDatabaseVersionMismatch(DatabaseVersionMismatchEventArgs args)
         {
 #if EASYTEST
-            e.Updater.Update();
-            e.Handled = true;
+            args.Updater.Update();
+            args.Handled = true;
 #else
             if (System.Diagnostics.Debugger.IsAttached)
             {
-                e.Updater.Update();
-                e.Handled = true;
+                args.Updater.Update();
+                args.Handled = true;
             }
             else
             {
@@ -52,6 +61,8 @@ namespace XpandBlog.Win
                     "for more detailed information. If this doesn't help, please contact our Support Team at http://www.devexpress.com/Support/Center/");
             }
 #endif
+
+            base.OnDatabaseVersionMismatch(args);
         }
     }
 }

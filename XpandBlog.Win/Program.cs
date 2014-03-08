@@ -1,12 +1,7 @@
 using System;
 using System.Configuration;
 using System.Windows.Forms;
-
-using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Security;
-using DevExpress.ExpressApp.Win;
-using DevExpress.Persistent.Base;
-using DevExpress.Persistent.BaseImpl;
 
 namespace XpandBlog.Win
 {
@@ -24,23 +19,15 @@ namespace XpandBlog.Win
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             EditModelPermission.AlwaysGranted = System.Diagnostics.Debugger.IsAttached;
-            XpandBlogWindowsFormsApplication winApplication = new XpandBlogWindowsFormsApplication();
-            // Refer to the http://documentation.devexpress.com/#Xaf/CustomDocument2680 help article for more details on how to provide a custom splash form.
-            //winApplication.SplashScreen = new DevExpress.ExpressApp.Win.Utils.DXSplashScreen("YourSplashImage.png");
+
+            var winApplication = new XpandBlogWindowsFormsApplication();
+
             if (ConfigurationManager.ConnectionStrings["ConnectionString"] != null)
-            {
-                winApplication.ConnectionString =
-                    ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-            }
-            else
-            {
-                string conn = DevExpress.Xpo.DB.MySqlConnectionProvider.GetConnectionString("localhost", "bloguser", "ThisIsMyBlog", "XpandBlog");
-                winApplication.ConnectionString = conn;
-            }
+                winApplication.ConnectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+
 #if EASYTEST
-            if(ConfigurationManager.ConnectionStrings["EasyTestConnectionString"] != null) {
+            if(ConfigurationManager.ConnectionStrings["EasyTestConnectionString"] != null) 
                 winApplication.ConnectionString = ConfigurationManager.ConnectionStrings["EasyTestConnectionString"].ConnectionString;
-            }
 #endif
             try
             {
