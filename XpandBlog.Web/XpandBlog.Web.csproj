@@ -44,6 +44,7 @@
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Data.v13.2, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.ExpressApp.Security.v13.2, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.ExpressApp.v13.2, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.ExpressApp.Xpo.v13.2, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Xpo.v13.2, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -175,13 +176,14 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\UnityDependencyResolverMVC.cs" />
     <Compile Include="Helpers\Xaf\XafHelper.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Identity\ApplicationUserManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -240,6 +242,7 @@
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -249,6 +252,14 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\XpandBlog.Contracts\XpandBlog.Contracts.csproj">
+      <Project>{22122561-AE5F-4998-8186-64A7F960C26E}</Project>
+      <Name>XpandBlog.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XpandBlog.DTO\XpandBlog.DTO.csproj">
+      <Project>{0dfff7a1-9f2d-4a5c-98bd-7c8b20e56aa0}</Project>
+      <Name>XpandBlog.DTO</Name>
+    </ProjectReference>
     <ProjectReference Include="..\XpandBlog.ExpressApp.Xpo\XpandBlog.ExpressApp.Xpo.csproj">
       <Project>{86CF33F0-2AA6-4131-B7C1-D34DBCBE5B41}</Project>
       <Name>XpandBlog.ExpressApp.Xpo</Name>
@@ -256,6 +267,14 @@
     <ProjectReference Include="..\XpandBlog.Model\XpandBlog.Model.csproj">
       <Project>{33B8A48E-123E-4F59-BD45-0E91D9F83A33}</Project>
       <Name>XpandBlog.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XpandBlog.Persistent.Base\XpandBlog.Persistent.Base.csproj">
+      <Project>{BBBF9347-183E-4CF9-8259-D86000431A2D}</Project>
+      <Name>XpandBlog.Persistent.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XpandBlog.Xpo\XpandBlog.Xpo.csproj">
+      <Project>{89a8afc1-58dd-470b-91c5-fd202d0478ef}</Project>
+      <Name>XpandBlog.Xpo</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

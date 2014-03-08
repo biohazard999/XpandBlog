@@ -49,6 +49,7 @@
     <Compile Include="Security\IRole.cs" />
     <Compile Include="Security\IUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\IUserMapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

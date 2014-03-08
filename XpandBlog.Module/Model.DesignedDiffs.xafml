@@ -1,3 +1,20 @@
-﻿<?xml version="1.0" ?>
-<Application Title="XpandBlog" Logo="ExpressAppLogo" />
-
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application Title="XpandBlog" Logo="ExpressAppLogo">
+  <BOModel>
+    <Class Name="XpandBlog.Model.Security.Role" ImageName="BO_Role" />
+    <Class Name="XpandBlog.Model.Security.User" ImageName="BO_User" />
+  </BOModel>
+  <NavigationItems>
+    <Items>
+      <Item Id="Security" Caption="Security" ImageName="BO_Security_Permission" IsNewNode="True">
+        <Items IsNewNode="True">
+          <Item Id="User" ViewId="User_ListView" Caption="Users" Index="0" IsNewNode="True" />
+          <Item Id="Roles" ViewId="Role_ListView" Caption="Roles" IsNewNode="True" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+  <SchemaModules>
+    <SchemaModule Name="SystemModule" Version="13.2.6.0" IsNewNode="True" />
+  </SchemaModules>
+</Application>

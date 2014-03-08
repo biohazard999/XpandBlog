@@ -1,5 +1,11 @@
-﻿using DevExpress.ExpressApp;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using DevExpress.Data.Filtering;
+using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Xpo;
+using DevExpress.Xpo;
+using DevExpress.Xpo.Helpers;
 using Microsoft.Practices.Unity;
 using XpandBlog.Persistent.Base;
 using XpandBlog.Xpo;
@@ -18,6 +24,15 @@ namespace XpandBlog.ExpressApp.Xpo
 
             return null;
         }
-         
+
+        public static Session GetSession(this IObjectSpace os)
+        {
+            if (os is XPObjectSpace)
+                return (os as XPObjectSpace).Session;
+            return null;
+        }
+
+
+
     }
 }

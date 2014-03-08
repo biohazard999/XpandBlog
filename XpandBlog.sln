@@ -37,6 +37,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XpandBlog.Persistent.Base",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XpandBlog.Xpo", "XpandBlog.Xpo\XpandBlog.Xpo.csproj", "{89A8AFC1-58DD-470B-91C5-FD202D0478EF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XpandBlog.Xpo.Tests", "XpandBlog.Xpo.Tests\XpandBlog.Xpo.Tests.csproj", "{7089BD8D-7501-4B1E-A336-651D26DFBDCF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -116,6 +118,12 @@ Global
 		{89A8AFC1-58DD-470B-91C5-FD202D0478EF}.EasyTest|Any CPU.Build.0 = Release|Any CPU
 		{89A8AFC1-58DD-470B-91C5-FD202D0478EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89A8AFC1-58DD-470B-91C5-FD202D0478EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7089BD8D-7501-4B1E-A336-651D26DFBDCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7089BD8D-7501-4B1E-A336-651D26DFBDCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7089BD8D-7501-4B1E-A336-651D26DFBDCF}.EasyTest|Any CPU.ActiveCfg = Release|Any CPU
+		{7089BD8D-7501-4B1E-A336-651D26DFBDCF}.EasyTest|Any CPU.Build.0 = Release|Any CPU
+		{7089BD8D-7501-4B1E-A336-651D26DFBDCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7089BD8D-7501-4B1E-A336-651D26DFBDCF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -133,5 +141,6 @@ Global
 		{86CF33F0-2AA6-4131-B7C1-D34DBCBE5B41} = {9DDF40B0-BC58-4F16-82FE-D1F52857829F}
 		{BBBF9347-183E-4CF9-8259-D86000431A2D} = {9DDF40B0-BC58-4F16-82FE-D1F52857829F}
 		{89A8AFC1-58DD-470B-91C5-FD202D0478EF} = {9DDF40B0-BC58-4F16-82FE-D1F52857829F}
+		{7089BD8D-7501-4B1E-A336-651D26DFBDCF} = {9DDF40B0-BC58-4F16-82FE-D1F52857829F}
 	EndGlobalSection
 EndGlobal
