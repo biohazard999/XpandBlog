@@ -29,7 +29,13 @@ namespace XpandBlog.Win
             //winApplication.SplashScreen = new DevExpress.ExpressApp.Win.Utils.DXSplashScreen("YourSplashImage.png");
             if (ConfigurationManager.ConnectionStrings["ConnectionString"] != null)
             {
-                winApplication.ConnectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+                winApplication.ConnectionString =
+                    ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            }
+            else
+            {
+                string conn = DevExpress.Xpo.DB.MySqlConnectionProvider.GetConnectionString("localhost", "bloguser", "ThisIsMyBlog", "XpandBlog");
+                winApplication.ConnectionString = conn;
             }
 #if EASYTEST
             if(ConfigurationManager.ConnectionStrings["EasyTestConnectionString"] != null) {
