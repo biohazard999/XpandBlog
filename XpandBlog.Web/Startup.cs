@@ -10,7 +10,7 @@ namespace XpandBlog.Web
         {
             var unityContainer = BootstrapperMVC.Initialise();
 
-            ConfigureAuth(app);
+            ConfigureAuth(app, unityContainer);
         }
     }
 }

@@ -34,24 +34,15 @@ namespace XpandBlog.ExpressApp.Xpo
 
         public static UnitOfWork CreateUnitOfWork(this IObjectSpaceProvider objectSpaceProvider)
         {
-            if (objectSpaceProvider is UnityXPObjectSpaceProvider)
-            {
-                return new UnityUnitOfWork((objectSpaceProvider as UnityXPObjectSpaceProvider).DataLayer, (objectSpaceProvider as UnityXPObjectSpaceProvider).UnityContainer);
-            }
+            var os = objectSpaceProvider.CreateObjectSpace();
+            if (os is XPObjectSpace)
+                return (os as XPObjectSpace).Session as UnitOfWork;
 
-            if (objectSpaceProvider is XPObjectSpaceProvider)
-            {
-                return new UnitOfWork((objectSpaceProvider as XPObjectSpaceProvider).DataLayer);
-            }
             return null;
         }
         public static Session CreateSession(this IObjectSpaceProvider objectSpaceProvider)
         {
-            if (objectSpaceProvider is XPObjectSpaceProvider)
-            {
-                return new Session((objectSpaceProvider as XPObjectSpaceProvider).DataLayer);
-            }
-            return null;
+            return objectSpaceProvider.CreateUnitOfWork();
         }
 
 

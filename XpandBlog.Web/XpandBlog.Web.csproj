@@ -180,6 +180,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Security\UserExtentions.cs" />
     <Compile Include="Helpers\UnityDependencyResolverMVC.cs" />
     <Compile Include="Helpers\Xaf\XafHelper.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -255,6 +256,10 @@
     <ProjectReference Include="..\XpandBlog.Contracts\XpandBlog.Contracts.csproj">
       <Project>{22122561-AE5F-4998-8186-64A7F960C26E}</Project>
       <Name>XpandBlog.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XpandBlog.Domain\XpandBlog.Domain.csproj">
+      <Project>{C4F469FB-40F1-4B43-81EF-9E2E39E0107C}</Project>
+      <Name>XpandBlog.Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\XpandBlog.DTO\XpandBlog.DTO.csproj">
       <Project>{0dfff7a1-9f2d-4a5c-98bd-7c8b20e56aa0}</Project>
